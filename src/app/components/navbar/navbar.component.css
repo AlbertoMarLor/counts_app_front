@@ -1,0 +1,62 @@
+.cashFlow {
+    display: flex;
+    width: 300px;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.cashFlow a {
+    text-decoration: none;
+}
+
+.fa-solid {
+    font-size: 1.5em;
+    color: var(--yellow-color);
+
+}
+
+.buttons {
+    color: var(--softgreen-color);
+    font-size: 1.5em;
+}
+
+
+ul {
+    list-style: none;
+}
+
+ul>li {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    background: linear-gradient(#26534e, #2a9d8f);
+    border-radius: 10px;
+    box-shadow: 1px 1px #1c766c;
+    width: calc(120px - 10px);
+    color: whitesmoke;
+    text-align: center;
+    transition: 0.25s;
+}
+
+ul>li:hover {
+    transition: 0.25s;
+    transform: scale(1.05);
+}
+
+ul>li>a {
+    text-decoration: none;
+    color: var(--darkgreen);
+}
+
+
+
+.texto {
+    background: linear-gradient(to right, #e76f51, #e9c46a, #2a9d8f);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-top: 15px;
+    font-family: var(--CashFlow-font-family);
+    font-size: 3em;
+}

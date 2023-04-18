@@ -1,3 +1,78 @@
+input {
+    font-family: var(--mainfont);
+    font-weight: 300;
+}
+
+label,
+h1 {
+    font-family: var(--mainfont);
+    font-weight: 500;
+}
+
+input,
+label,
+i {
+    color: var(--darkgreen-color);
+}
+
+h1 {
+    border-bottom: 2px solid var(--darkgreen-color);
+    text-shadow: 0.5px 0.5px var(--darkgreen-color);
+    margin: 30px 0;
+    padding: 20px;
+    text-align: center;
+    color: var(--softgreen-color);
+}
+
+form {
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+.registeryet a,
+p {
+    color: var(--darkgreen-color);
+    text-decoration: none;
+}
+
+span {
+    font-weight: bold;
+    color: var(--darkgreen-color);
+}
+
+.registeryet span:hover {
+    color: var(--softgreen-color);
+}
+
+.eye {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+input {
+    border-radius: 5px;
+    border-color: lightgray;
+    height: 35px;
+}
+
+.input {
+    width: 95%;
+}
+
+
+.input-eye {
+    width: calc(100% - 40px);
+}
+
+.button {
+    background-color: transparent;
+    border-radius: 5px;
+    border-color: none;
+    box-shadow: none;
+    width: 35px;
+}
+
 input.ng-valid.ng-touched {
     border-color: lightgreen;
 }
@@ -8,4 +83,8 @@ input.ng-invalid.ng-touched {
 
 .error {
     color: tomato
+}
+
+.btn-success {
+    background-color: #2a9d8f;
 }
