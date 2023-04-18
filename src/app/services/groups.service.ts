@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 
@@ -6,6 +6,7 @@ import { firstValueFrom } from 'rxjs';
   providedIn: 'root'
 })
 export class GroupsService {
+
   private baseUrl: string;
 
 
@@ -16,38 +17,69 @@ export class GroupsService {
   }
 
   getAll() {
+    const options = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('cashFlowToken')!
+      })
+    }
     return firstValueFrom(
-      this.httpClient.get<any[]>(`${this.baseUrl}`)
+      this.httpClient.get<any[]>(`${this.baseUrl}`, options)
     )
   }
 
   getById(groupId: number) {
+    const options = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('cashFlowToken')!
+      })
+    }
     return firstValueFrom(
-      this.httpClient.get<any[]>(`${this.baseUrl}/:${groupId}`)
+      this.httpClient.get<any[]>(`${this.baseUrl}/:${groupId}`, options)
     )
   }
 
   create(body: any) {
+    const options = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('cashFlowToken')!
+      })
+    }
     return firstValueFrom(
-      this.httpClient.post<any[]>(`${this.baseUrl}/newGroup`, body)
+      this.httpClient.post<any[]>(`${this.baseUrl}/newGroup`, body, options)
     )
   }
 
   addUser(body: any, username: string, userId: number) {
+    const options = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('cashFlowToken')!
+      })
+    }
     return firstValueFrom(
-      this.httpClient.post<any[]>(`${this.baseUrl}:/${userId}/adduser/:${username}`, body)
+
+      this.httpClient.post<any[]>(`${this.baseUrl}:/${userId}/adduser/:${username}`, body, options)
     )
   }
 
   update(body: any, groupId: number) {
+    const options = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('cashFlowToken')!
+      })
+    }
     return firstValueFrom(
-      this.httpClient.post<any[]>(`${this.baseUrl}/edit/:${groupId}`, body)
+      this.httpClient.post<any[]>(`${this.baseUrl}/edit/:${groupId}`, body, options)
     )
   }
 
   delete(groupId: number) {
+    const options = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('cashFlowToken')!
+      })
+    }
     return firstValueFrom(
-      this.httpClient.delete<any[]>(`${this.baseUrl}/:${groupId}`)
+      this.httpClient.delete<any[]>(`${this.baseUrl}/:${groupId}`, options)
     )
   }
 
