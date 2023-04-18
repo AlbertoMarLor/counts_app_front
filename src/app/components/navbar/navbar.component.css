@@ -38,6 +38,7 @@ ul>li {
     color: whitesmoke;
     text-align: center;
     transition: 0.25s;
+    cursor: pointer;
 }
 
 ul>li:hover {
