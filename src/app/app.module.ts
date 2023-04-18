@@ -12,6 +12,7 @@ import { BillsComponent } from './components/bills/bills/bills.component';
 import { FormBillComponent } from './components/bills/form-bill/form-bill.component';
 import { UpdateGroupComponent } from './components/groups/update-group/update-group.component';
 import { UpdateBillComponent } from './components/bills/update-bill/update-bill.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,10 +27,12 @@ import { UpdateBillComponent } from './components/bills/update-bill/update-bill.
     UpdateGroupComponent,
     UpdateBillComponent,
 
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

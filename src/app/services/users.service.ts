@@ -5,5 +5,16 @@ import { Injectable } from '@angular/core';
 })
 export class UsersService {
 
-  constructor() { }
+  constructor() {
+
+  }
+
+
+
+
+  create(body: any) { }
+
+
+  login(body: any) { }
+
 }
