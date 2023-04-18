@@ -13,6 +13,7 @@ import { FormBillComponent } from './components/bills/form-bill/form-bill.compon
 import { UpdateGroupComponent } from './components/groups/update-group/update-group.component';
 import { UpdateBillComponent } from './components/bills/update-bill/update-bill.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormBillComponent,
     UpdateGroupComponent,
     UpdateBillComponent,
+    NavbarComponent,
 
 
   ],
