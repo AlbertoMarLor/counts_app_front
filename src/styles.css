@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&family=Sedgwick+Ave+Display&display=swap');
+
+
+
+:root {
+    --CashFlow-font-family: 'Sedgwick Ave Display', cursive, sans-serif;
+    --mainfont: 'Roboto', sans-serif;
+    --red-color: #e76f51;
+    --orange-color: #f4a261;
+    --yellow-color: #e9c46a;
+    --background-color: #f0ebdb;
+    --softgreen-color: #2a9d8f;
+    --darkgreen-color: #26534e;
+}
+
+
+body {
+    background-color: var(--background-color);
+}

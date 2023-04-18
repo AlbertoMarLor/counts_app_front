@@ -1,0 +1,97 @@
+.cashFlow {
+    display: flex;
+    width: 300px;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.cashFlow a {
+    text-decoration: none;
+}
+
+.fa-solid {
+    font-size: 1.5em;
+    color: var(--yellow-color);
+
+}
+
+i {
+    color: var(--softgreen-color);
+    font-size: 1.5em;
+}
+
+.followus>a>i {
+    margin: 10px;
+}
+
+
+.texto {
+    background: linear-gradient(to right, #e76f51, #e9c46a, #2a9d8f);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-top: 15px;
+    font-family: var(--CashFlow-font-family);
+    font-size: 3em;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+ul>li {
+    padding: 40px;
+    border-radius: 10px;
+    width: 500px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 4px #444;
+}
+
+ul>li>a {
+    text-decoration: none;
+    display: block;
+    color: white;
+    font-family: var(--mainfont);
+    font-size: 1.5em;
+    font-weight: 500;
+    text-shadow: 1px 1px 1px #444;
+}
+
+.login {
+    margin-top: 60px;
+    background-color: var(--red-color);
+    transition: 0.5s;
+}
+
+.register {
+    background-color: var(--yellow-color);
+    transition: 0.5s;
+}
+
+.groups {
+    background-color: var(--softgreen-color);
+    transition: 0.5s;
+}
+
+.login:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+    background: #a43e24;
+}
+
+.register:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+    background: var(--orange-color);
+}
+
+.groups:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+    background: var(--darkgreen-color);
+}
