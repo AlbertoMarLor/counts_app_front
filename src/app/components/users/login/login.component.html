@@ -19,10 +19,11 @@
         <div class="form-group mb-2">
             <label>Password</label>
             <div class="eye">
-                <input [type]="password" class="input-eye" placeholder="Enter password" formControlName="password">
-                <button type="button" class="button" (click)="showPassword()"><i class="fa-solid fa-eye"></i></button>
+                <input [type]="password" class="input" placeholder="Enter password" formControlName="password">
+                <button type="button" class="btn" (click)="showPassword()">
+                    <i class="fa-solid fa-eye"></i>
+                </button>
             </div>
-
             <p class="error" *ngIf="checkError('password', 'pattern')">
                 Password must have: uppercase, lowercase and numbers. Between 3 and 8 characters
             </p>
