@@ -29,17 +29,48 @@ form {
     margin: 0 auto;
 }
 
-.registeryet a {
+.registeryet a,
+p {
     color: var(--darkgreen-color);
     text-decoration: none;
 }
 
 span {
     font-weight: bold;
+    color: var(--darkgreen-color);
+}
+
+.registeryet span:hover {
     color: var(--softgreen-color);
 }
 
-.registeryet:hover {}
+.eye {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+input {
+    border-radius: 5px;
+    border-color: lightgray;
+    height: 35px;
+}
+
+.input {
+    width: 100%;
+}
+
+.input-eye {
+    width: calc(100% - 40px);
+}
+
+.button {
+    background-color: transparent;
+    border-radius: 5px;
+    border-color: none;
+    box-shadow: none;
+    width: 35px;
+}
 
 input.ng-valid.ng-touched {
     border-color: lightgreen;

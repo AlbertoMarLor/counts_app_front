@@ -6,7 +6,9 @@
     <form class="mt-5" [formGroup]="formulario" (ngSubmit)="onSubmit()">
         <div class="form-group mb-3">
             <label>Email address</label>
-            <input type="email" class="form-control" placeholder="Enter email" formControlName="email">
+            <div>
+                <input type="email" class="input" placeholder="Enter email" formControlName="email">
+            </div>
             <p class="error" *ngIf="checkError('email', 'required')">
                 Email field is required
             </p>
@@ -16,10 +18,11 @@
         </div>
         <div class="form-group mb-2">
             <label>Password</label>
-            <input [type]="password" class="form-control" placeholder="Enter password" formControlName="password">
-            <button type="button" class="btn" (click)="showPassword()">
-                <i class="fa-solid fa-eye"></i>
-            </button>
+            <div class="eye">
+                <input [type]="password" class="input-eye" placeholder="Enter password" formControlName="password">
+                <button type="button" class="button" (click)="showPassword()"><i class="fa-solid fa-eye"></i></button>
+            </div>
+
             <p class="error" *ngIf="checkError('password', 'pattern')">
                 Password must have: uppercase, lowercase and numbers. Between 3 and 8 characters
             </p>
@@ -28,9 +31,9 @@
             Password is required
         </p>
         <div class="registeryet">
-            <a routerLink="/users/register">
-                <p>Not registered yet? <span>Click here!</span></p>
-            </a>
+
+            <p>Not registered yet?<a routerLink="/users/register"> <span> Click here!</span></a></p>
+
         </div>
         <button type="submit" value="submit" class="btn btn-success mt-2" [disabled]="!formulario.valid">Submit</button>
 
