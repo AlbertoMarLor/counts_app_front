@@ -19,8 +19,8 @@ const routes: Routes = [
   { path: 'bills', component: BillsComponent },
   { path: 'groups/newGroup', component: FormGroupComponent },
   { path: 'bills/newBill', component: FormBillComponent },
-  { path: 'groups/:groupId', component: UpdateGroupComponent },
-  { path: 'groups/:billId', component: UpdateBillComponent },
+  { path: 'groups/edit/:groupId', component: UpdateGroupComponent },
+  { path: 'groups/edit/:billId', component: UpdateBillComponent },
   { path: '**', redirectTo: '/home' },
 ];
 
