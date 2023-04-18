@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-form-group',
+  selector: 'form-group',
   templateUrl: './form-group.component.html',
   styleUrls: ['./form-group.component.css']
 })

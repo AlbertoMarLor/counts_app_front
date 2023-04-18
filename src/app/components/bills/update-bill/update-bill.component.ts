@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-update-bill',
+  selector: 'update-bill',
   templateUrl: './update-bill.component.html',
   styleUrls: ['./update-bill.component.css']
 })
