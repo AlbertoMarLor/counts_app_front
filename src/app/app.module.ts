@@ -6,13 +6,26 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/users/register/register.component';
 import { LoginComponent } from './components/users/login/login.component';
+import { FormGroupComponent } from './components/groups/form-group/form-group.component';
+import { GroupsComponent } from './components/groups/groups/groups.component';
+import { BillsComponent } from './components/bills/bills/bills.component';
+import { FormBillComponent } from './components/bills/form-bill/form-bill.component';
+import { UpdateGroupComponent } from './components/groups/update-group/update-group.component';
+import { UpdateBillComponent } from './components/bills/update-bill/update-bill.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    FormGroupComponent,
+    GroupsComponent,
+    BillsComponent,
+    FormBillComponent,
+    UpdateGroupComponent,
+    UpdateBillComponent,
+
   ],
   imports: [
     BrowserModule,
