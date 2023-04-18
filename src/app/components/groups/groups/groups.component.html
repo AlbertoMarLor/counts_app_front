@@ -1,1 +1,10 @@
 <navbar></navbar>
+
+<div class="container">
+    <div class="groups">
+        <div class="group" *ngFor="let group of groups"></div>
+        <h3>{{group.name}}</h3>
+        <p>{{group.description}}</p>
+        <p>{{group.date}}</p>
+    </div>
+</div>
