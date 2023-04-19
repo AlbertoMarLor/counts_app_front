@@ -1,0 +1,19 @@
+.groups {
+
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.group {
+
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: white;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.groups button:first-child {
+    border-radius: 10px;
+}

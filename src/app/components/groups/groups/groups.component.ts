@@ -14,4 +14,23 @@ export class GroupsComponent {
     this.groups = [];
   }
 
+
+
+  async ngOnInit() {
+    this.groups = await this.groupsService.getAll();
+
+  }
+
+  addUser() {
+
+  }
+
+  updateGroup() {
+
+
+  }
+
+  deleteGroup() { }
+
+
 }
