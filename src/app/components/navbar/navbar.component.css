@@ -31,26 +31,23 @@ ul>li {
     display: inline-block;
     margin: 10px;
     padding: 10px;
-    background: linear-gradient(#26534e, #2a9d8f);
-    border-radius: 10px;
-    box-shadow: 1px 1px #1c766c;
     width: calc(120px - 10px);
-    color: whitesmoke;
+    color: var(--softgreen-color);
     text-align: center;
     transition: 0.25s;
     cursor: pointer;
+    font-family: var(--CashFlow-font-family);
 }
 
 ul>li:hover {
     transition: 0.25s;
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 ul>li>a {
     text-decoration: none;
-    color: var(--darkgreen);
+    color: var(--softgreen-color);
 }
-
 
 
 .texto {
@@ -60,4 +57,50 @@ ul>li>a {
     margin-top: 15px;
     font-family: var(--CashFlow-font-family);
     font-size: 3em;
+}
+
+hr {
+    display: none;
+}
+
+@media (max-width: 600px) {
+
+    .cashFlow {
+        justify-content: center;
+        margin-left: 20px;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        margin-right: 30px;
+        padding: 10px;
+    }
+
+    ul>li>a:hover {
+        display: block;
+        transition: 0.25s;
+        background-color: var(--softgreen-color);
+        border-radius: 10px;
+        color: white;
+        width: 200px;
+        margin: 0 auto;
+    }
+
+
+    ul>li {
+        padding: 10px;
+        width: 100%;
+        color: var(--softgreen-color);
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    hr {
+        display: block;
+        margin-top: 30px;
+    }
+
+
 }

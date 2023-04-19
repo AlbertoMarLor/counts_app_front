@@ -40,7 +40,7 @@ export class RegisterComponent {
 
   async onSubmit() {
     await this.userService.create(this.formulario.value);
-    this.router.navigate(['/login']);
+    this.router.navigate(['/users/login']);
   }
 
 
