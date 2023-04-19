@@ -33,9 +33,9 @@ export class LoginComponent {
 
   async onSubmit() {
     const response = await this.userService.login(this.formulario.value);
-    console.log(response);
 
-    localStorage.setItem('cashFlowToken', response[0].token);
+
+    localStorage.setItem('cashFlowToken', response.token);
     this.router.navigate(['/groups']);
   }
 
