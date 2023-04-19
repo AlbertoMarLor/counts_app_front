@@ -49,6 +49,7 @@ i {
     height: 40px;
     border-radius: 10px;
     background-color: var(--softgreen-color);
+    border: 1px solid var(--darkgreen-color);
 }
 
 .newgroup {
@@ -67,9 +68,6 @@ i {
         margin-bottom: 10px;
     }
 
-    .newgroup>p {
-        margin-top: 0px;
-    }
 
     .groups {
         margin-top: 0px;
