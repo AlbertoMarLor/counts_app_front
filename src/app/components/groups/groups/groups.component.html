@@ -2,7 +2,10 @@
 
 <div class="container">
     <div class="groups">
-        <button (click)="addUser()"><i class="fa-solid fa-plus"></i></button>
+        <div class="newgroup">
+            <button class="add" (click)="addUser()"><i class="fa-solid fa-plus"></i></button>
+            <p>Create New Group</p>
+        </div>
 
 
         <div class="group" *ngFor="let group of groups">

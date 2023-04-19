@@ -1,19 +1,32 @@
 .groups {
-
-    border: 1px solid black;
-    border-radius: 15px;
+    margin-top: 20px;
     padding: 10px;
 }
 
-.group {
+body {
+    color: var(--darkgreen-color);
+}
 
-    border: 1px solid black;
-    border-radius: 15px;
-    background-color: white;
+.group {
+    border-top: 1px solid black;
+
     margin: 10px 0;
     padding: 10px;
 }
 
-.groups button:first-child {
+.add {
+    width: 40px;
+    height: 40px;
     border-radius: 10px;
+    background-color: var(--softgreen-color);
+}
+
+.newgroup {
+    display: flex;
+    gap: 10px;
+    justify-content: right;
+}
+
+.newgroup>p {
+    margin-top: 8px;
 }
