@@ -2,18 +2,22 @@
 
 <div class="container">
     <div class="groups">
-        <div class="newgroup">
+        <div class="newgroup" routerLink="/groups/:groupId/bills">
             <button class="add" (click)="addUser()"><i class="fa-solid fa-plus"></i></button>
             <p>Create New Group</p>
         </div>
 
 
         <div class="group" *ngFor="let group of groups">
-            <button class="btn" (click)="updateGroup()"><i class="fa-regular fa-pen-to-square"></i></button>
-            <button class="btn" (click)="deleteGroup()"><i class="fa-regular fa-trash-can"></i></button>
-            <h3>{{group.name}}</h3>
-            <p>{{group.description}}</p>
-            <p><i class="fa-regular fa-calendar"></i> {{ group.date| date:'dd/MM/yyyy' }}</p>
+            <div class="text">
+                <h3>{{group.name}}</h3>
+                <p>{{group.description}}</p>
+                <p><i class="fa-regular fa-calendar"></i> {{ group.date | date:'dd/MM/yyyy' }}</p>
+            </div>
+            <div class="icons">
+                <button class="btn" (click)="updateGroup()"><i class="fa-regular fa-pen-to-square"></i></button>
+                <button class="btn" (click)="deleteGroup()"><i class="fa-regular fa-trash-can"></i></button>
+            </div>
         </div>
     </div>
 </div>
