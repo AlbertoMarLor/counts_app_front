@@ -19,13 +19,13 @@ export class UsersService {
 
   create(body: any) {
     return firstValueFrom(
-      this.httpClient.post<any[]>(`${this.baseUrl}/register`, body)
+      this.httpClient.post<any>(`${this.baseUrl}/register`, body)
     )
   }
 
   login(body: any) {
     return firstValueFrom(
-      this.httpClient.post<any[]>(`${this.baseUrl}/login`, body)
+      this.httpClient.post<any>(`${this.baseUrl}/login`, body)
     )
   }
 
