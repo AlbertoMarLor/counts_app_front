@@ -34,7 +34,7 @@ export class GroupsService {
       })
     }
     return firstValueFrom(
-      this.httpClient.get<any[]>(`${this.baseUrl}/:${groupId}`, options)
+      this.httpClient.get<any>(`${this.baseUrl}/:${groupId}`, options)
     )
   }
 
@@ -68,7 +68,7 @@ export class GroupsService {
       })
     }
     return firstValueFrom(
-      this.httpClient.post<any[]>(`${this.baseUrl}/edit/:${groupId}`, body, options)
+      this.httpClient.put<any[]>(`${this.baseUrl}/edit/:${groupId}`, body, options)
     )
   }
 
@@ -79,7 +79,7 @@ export class GroupsService {
       })
     }
     return firstValueFrom(
-      this.httpClient.delete<any[]>(`${this.baseUrl}/:${groupId}`, options)
+      this.httpClient.delete<any>(`${this.baseUrl}/${groupId}`, options)
     )
   }
 
