@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GroupsService } from 'src/app/services/groups.service';
 
 @Component({
@@ -10,13 +10,17 @@ import { GroupsService } from 'src/app/services/groups.service';
 })
 export class UpdateGroupComponent {
 
+
+  group: any;
   formulario: FormGroup
 
   constructor(private groupService: GroupsService,
-    private router: Router) {
+    private router: Router,
+    private activatedRoute: ActivatedRoute) {
 
-
+    this.group = {}
     this.formulario = new FormGroup({
+
 
       name: new FormControl(null, [
         Validators.required,
@@ -34,16 +38,27 @@ export class UpdateGroupComponent {
     return this.formulario.get(control)?.hasError(validator) && this.formulario.get(control)?.touched;
   }
 
-  async onSubmit() {
-    await this.groupService.create(this.formulario.value);
-    this.router.navigate(['/groups']);
-  }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(async data => {
+      this.group = await this.groupService.getById(parseInt(data['groupId']))
 
-    //Recuperar los datos del grupo
-    this.formulario.setValue({ name: 'cosa', date: '2023-10-22', description: 'lo que sea' })
+
+    })
+
   }
+  async onSubmit() {
+    this.activatedRoute.params.subscribe(async data => {
+      this.group = await this.groupService.update(this.formulario.value, parseInt(data['groupId']))
+      console.log(this.group);
+      this.router.navigate(['/groups']);
+
+    })
+
+  }
+
+  //Recuperar los datos del grupo
+  /*   this.formulario.setValue({ name: 'cosa', date: '2023-10-22', description: 'lo que sea' }) */
 
 
 }
