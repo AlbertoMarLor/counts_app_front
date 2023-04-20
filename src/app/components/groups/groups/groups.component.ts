@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { GroupsService } from 'src/app/services/groups.service';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'groups',
@@ -12,6 +13,7 @@ export class GroupsComponent {
   groups: any[];
 
   constructor(private groupsService: GroupsService,
+    public usersService: UsersService,
     private router: Router) {
     this.groups = [];
   }

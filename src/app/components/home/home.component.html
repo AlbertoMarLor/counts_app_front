@@ -2,9 +2,7 @@
     <div>
         <nav class="navbar">
             <div class="cashFlow">
-                <a routerLink="/home">
-                    <p class="texto"> CashFlow </p>
-                </a>
+                <p class="texto"> CashFlow </p>
                 <i class="fa-solid fa-hand-holding-dollar"></i>
             </div>
             <div class="followus">
@@ -25,13 +23,13 @@
 
         <div class="buttons">
             <ul>
-                <li class="login" routerLinkActive="active">
+                <li class="login" routerLinkActive="active" *ngIf="!usersService.isLogged()">
                     <a routerLink="/users/login">Login</a>
                 </li>
-                <li class="register" routerLinkActive="active">
+                <li class="register" routerLinkActive="active" *ngIf="!usersService.isLogged()">
                     <a routerLink="/users/register">Register</a>
                 </li>
-                <li class="groups" routerLinkActive="active">
+                <li class="groups" routerLinkActive="active" *ngIf="usersService.isLogged()">
                     <a routerLink="/groups">Groups</a>
                 </li>
 

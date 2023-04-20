@@ -5,8 +5,9 @@
         <!-- <button routerLink="/groups/newGroup"><i class="fa-solid fa-plus"></i></button>   -->
 
         <div class="newgroup">
-            <button routerLink="/groups/newGroup" class="add"><i class="fa-solid fa-plus"></i></button>
-            <p>Create New Group</p>
+            <button routerLink="/groups/newGroup" class="add" *ngIf="usersService.isLogged()"><i
+                    class="fa-solid fa-plus"></i></button>
+            <p *ngIf="usersService.isLogged()">Create New Group</p>
         </div>
 
 
