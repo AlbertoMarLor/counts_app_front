@@ -12,21 +12,25 @@ export class BillsService {
 
   constructor(private httpClient: HttpClient) {
 
-    this.baseUrl = 'http://localhost:3000/api/bills'
+    this.baseUrl = 'http://localhost:3000/api/groups/bills'
 
   }
 
-  getAll() {
-
+  getAll(groupId: number) {
+    const options = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('cashFlowToken')!
+      })
+    }
     return firstValueFrom(
-      this.httpClient.get<any[]>(`${this.baseUrl}`)
+      this.httpClient.get<any[]>(`${this.baseUrl}/${groupId}`, options)
     )
   }
 
   getById(billId: number) {
 
     return firstValueFrom(
-      this.httpClient.get<any[]>(`${this.baseUrl}/:${billId}`)
+      this.httpClient.get<any[]>(`${this.baseUrl}/${billId}`)
     )
   }
 

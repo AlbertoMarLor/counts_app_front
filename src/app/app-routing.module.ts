@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'users/register', component: RegisterComponent },
   { path: 'users/login', component: LoginComponent },
   { path: 'groups', component: GroupsComponent },
-  { path: 'bills', component: BillsComponent },
+  { path: 'groups/bills/:groupId', component: BillsComponent },
   { path: 'groups/newGroup', component: FormGroupComponent },
   { path: 'bills/newBill', component: FormBillComponent },
   { path: 'groups/edit/:groupId', component: UpdateGroupComponent },
