@@ -12,7 +12,7 @@ import { BillsComponent } from './components/bills/bills/bills.component';
 import { FormBillComponent } from './components/bills/form-bill/form-bill.component';
 import { UpdateGroupComponent } from './components/groups/update-group/update-group.component';
 import { UpdateBillComponent } from './components/bills/update-bill/update-bill.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -36,7 +36,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
