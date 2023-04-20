@@ -1,0 +1,27 @@
+.registeryet {
+    display: flex;
+    gap: 5px;
+}
+
+.icon {
+    margin-top: 3px;
+}
+
+label,
+i {
+    color: var(--darkgreen-color);
+}
+
+.registeryet p {
+    color: var(--darkgreen-color);
+}
+
+.registeryet span:hover {
+    color: var(--softgreen-color);
+}
+
+span {
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--darkgreen-color);
+}

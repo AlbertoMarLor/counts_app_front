@@ -48,6 +48,6 @@ export class GroupsComponent {
   async goAddUser(groupId: number) {
     this.router.navigate([`/${groupId}/search`]);
   }
-  /* :groupId/search/:word */
+
 
 }
