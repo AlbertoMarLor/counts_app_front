@@ -29,4 +29,12 @@ export class UsersService {
     )
   }
 
+  isLogged(): boolean {
+    if (localStorage.getItem('cashFlowToken')) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }

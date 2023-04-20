@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GroupsService } from 'src/app/services/groups.service';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'update-group',
