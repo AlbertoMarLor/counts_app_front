@@ -19,6 +19,7 @@ body {
     max-width: 100%;
     color: var(--darkgreen-color);
     font-family: var(--mainfont-font-family);
+    cursor: pointer;
 }
 
 h3 {

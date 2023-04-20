@@ -43,5 +43,10 @@ export class GroupsComponent {
 
   }
 
+  onClick(groupId: number) {
+    this.router.navigate([`/groups/bills/${groupId}`])
+  }
 
 }
+
+
