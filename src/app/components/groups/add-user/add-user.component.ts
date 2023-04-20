@@ -12,6 +12,8 @@ export class AddUserComponent {
 
   formulario: FormGroup;
   group: any;
+  users: any[];
+
 
   constructor(private groupsService: GroupsService,
     private router: Router,
@@ -21,6 +23,8 @@ export class AddUserComponent {
       username: new FormControl()
     });
     this.group = {};
+    this.users = [];
+
   }
 
   checkError(control: string, validator: string) {
@@ -28,12 +32,18 @@ export class AddUserComponent {
   }
 
   async onInput() {
+    this.activatedRoute.params.subscribe(async data => {
+      this.users = await this.groupsService.findUser(this.formulario.value.username, parseInt(data['groupId']))
+    });
 
+  }
 
-    /* this.activatedRoute.params.subscribe(async data => {
-      this.group = await this.groupsService.getById(parseInt(data['groupId']))
-      await this.groupsService.addUser(this.formulario.value, parseInt(data(['groupId']));
-      this.router.navigate(['/groups']); */
+  onClick(userId: number) {
+    this.activatedRoute.params.subscribe(async data => {
+      let object = { userId: userId, groupId: parseInt(data['groupId']) }
+      console.log(object);
+      this.users = await this.groupsService.addUser(object)
+    });
   }
 
 }

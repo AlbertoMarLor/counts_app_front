@@ -35,7 +35,7 @@ export class GroupsService {
     }
     return firstValueFrom(
       this.httpClient.get<any>(`${this.baseUrl}/${groupId}`, options)
-    )
+    );
   }
 
   create(body: any) {
@@ -46,10 +46,22 @@ export class GroupsService {
     }
     return firstValueFrom(
       this.httpClient.post<any[]>(`${this.baseUrl}/newGroup`, body, options)
-    )
+    );
   }
 
-  addUser(body: any, username: string, userId: number) {
+  findUser(body: any, groupId: number) {
+    const options = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('cashFlowToken')!
+      })
+    }
+    return firstValueFrom(
+      this.httpClient.get<any>(`${this.baseUrl}/${groupId}/search/${body}`, options)
+    );
+  }
+
+
+  addUser(body: any) {
     const options = {
       headers: new HttpHeaders({
         'Authorization': localStorage.getItem('cashFlowToken')!
@@ -57,7 +69,7 @@ export class GroupsService {
     }
     return firstValueFrom(
 
-      this.httpClient.post<any[]>(`${this.baseUrl}:/${userId}/adduser/:${username}`, body, options)
+      this.httpClient.post<any>(`${this.baseUrl}/${body.groupId}/adduser`, body, options)
     )
   }
 

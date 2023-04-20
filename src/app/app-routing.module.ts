@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'groups', component: GroupsComponent },
   { path: 'bills', component: BillsComponent },
   { path: 'groups/newGroup', component: FormGroupComponent },
-  { path: 'groups/:groupId/edit/addUser', component: AddUserComponent },
+  { path: ':groupId/search', component: AddUserComponent },
   { path: 'bills/newBill', component: FormBillComponent },
   { path: 'groups/edit/:groupId', component: UpdateGroupComponent },
   { path: 'groups/edit/:billId', component: UpdateBillComponent },
