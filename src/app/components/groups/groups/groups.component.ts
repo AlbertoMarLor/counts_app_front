@@ -45,5 +45,9 @@ export class GroupsComponent {
 
   }
 
+  async goAddUser() {
+    this.router.navigate(['/groups/groupId/edit/addUser']);
+  }
+
 
 }

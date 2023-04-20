@@ -15,6 +15,7 @@ import { UpdateBillComponent } from './components/bills/update-bill/update-bill.
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddUserComponent } from './components/groups/add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     UpdateGroupComponent,
     UpdateBillComponent,
     NavbarComponent,
+    AddUserComponent,
 
 
   ],
