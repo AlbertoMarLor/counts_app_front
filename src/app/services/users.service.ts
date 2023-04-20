@@ -29,7 +29,6 @@ export class UsersService {
     )
   }
 
-<<<<<<< HEAD
   isLogged(): boolean {
     if (localStorage.getItem('cashFlowToken')) {
       return true;
@@ -37,8 +36,5 @@ export class UsersService {
       return false;
     }
   }
-=======
-
->>>>>>> feature/addUser
 
 }
