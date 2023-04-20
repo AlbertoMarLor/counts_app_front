@@ -13,12 +13,15 @@ export class UpdateGroupComponent {
 
 
   group: any;
-  formulario: FormGroup
+  formulario: FormGroup;
+  user: string;
 
   constructor(private groupService: GroupsService,
     private router: Router,
     private activatedRoute: ActivatedRoute) {
 
+
+    this.user = ''
     this.group = {}
     this.formulario = new FormGroup({
 
@@ -32,6 +35,7 @@ export class UpdateGroupComponent {
         Validators.maxLength(100)
       ])
 
+
     });
 
   }
@@ -44,6 +48,9 @@ export class UpdateGroupComponent {
     this.activatedRoute.params.subscribe(async data => {
       this.group = await this.groupService.getById(parseInt(data['groupId']))
 
+      let date = this.group.date.split('T')[0]
+
+      this.formulario.setValue({ name: this.group.name, date: date, description: this.group.description })
 
     })
 
@@ -58,8 +65,10 @@ export class UpdateGroupComponent {
 
   }
 
-  //Recuperar los datos del grupo
-  /*   this.formulario.setValue({ name: 'cosa', date: '2023-10-22', description: 'lo que sea' }) */
+
+  findUser() {
+
+  }
 
 
 }

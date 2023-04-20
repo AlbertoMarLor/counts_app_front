@@ -45,9 +45,17 @@ export class GroupsComponent {
 
   }
 
+<<<<<<< HEAD
   async goAddUser(groupId: number) {
     this.router.navigate([`/${groupId}/search`]);
   }
 
+=======
+  onClick(groupId: number) {
+    this.router.navigate([`/groups/bills/${groupId}`])
+  }
+>>>>>>> feature/addUser
 
 }
+
+
