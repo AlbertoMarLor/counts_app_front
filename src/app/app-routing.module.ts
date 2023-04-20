@@ -9,6 +9,7 @@ import { FormGroupComponent } from './components/groups/form-group/form-group.co
 import { FormBillComponent } from './components/bills/form-bill/form-bill.component';
 import { UpdateGroupComponent } from './components/groups/update-group/update-group.component';
 import { UpdateBillComponent } from './components/bills/update-bill/update-bill.component';
+import { AddUserComponent } from './components/groups/add-user/add-user.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'groups', component: GroupsComponent },
   { path: 'bills', component: BillsComponent },
   { path: 'groups/newGroup', component: FormGroupComponent },
+  { path: ':groupId/search', component: AddUserComponent },
   { path: 'bills/newBill', component: FormBillComponent },
   { path: 'groups/edit/:groupId', component: UpdateGroupComponent },
   { path: 'groups/edit/:billId', component: UpdateBillComponent },

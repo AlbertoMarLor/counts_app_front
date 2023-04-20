@@ -1,0 +1,23 @@
+<navbar></navbar>
+
+
+<div class="container">
+    <div class="registeryet">
+        <i class="fa-solid fa-user-group icon"></i>
+        <p routerLink="/groups/bills/:groupId"> Go back to <span>your group!</span></p>
+    </div>
+
+    <form class="mt-3" [formGroup]="formulario" (input)="onInput()">
+        <div class="form-group mb-3">
+            <label>Username</label>
+            <input type="text" class="form-control" placeholder="Enter an username" formControlName="username">
+
+        </div>
+
+    </form>
+
+    <div class="username" *ngFor="let user of users" (click)="onClick(user.id)">
+        <p>{{user.username}}</p>
+    </div>
+
+</div>
