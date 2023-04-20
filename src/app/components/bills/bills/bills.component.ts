@@ -24,7 +24,6 @@ export class BillsComponent {
     this.activatedRoute.params.subscribe(async data => {
 
       this.bills = await this.billsService.getAll(parseInt(data['groupId']))
-      console.log(this.group);
     })
 
   }
