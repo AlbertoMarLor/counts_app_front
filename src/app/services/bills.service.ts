@@ -28,31 +28,47 @@ export class BillsService {
   }
 
   getById(billId: number) {
-
+    const options = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('cashFlowToken')!
+      })
+    }
     return firstValueFrom(
-      this.httpClient.get<any[]>(`${this.baseUrl}/${billId}`)
+      this.httpClient.get<any>(`${this.baseUrl}/${billId}`, options)
     )
   }
 
-  create(body: any) {
-
+  create(body: any, groupId: number) {
+    const options = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('cashFlowToken')!
+      })
+    }
     return firstValueFrom(
-      this.httpClient.post<any[]>(`${this.baseUrl}/newBill`, body)
+      this.httpClient.post<any>(`${this.baseUrl}/${groupId}/newBill`, body, options)
     )
   }
 
 
-  update(body: any, billId: number) {
-
+  update(body: any, billId: number, groupId: number) {
+    const options = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('cashFlowToken')!
+      })
+    }
     return firstValueFrom(
-      this.httpClient.post<any[]>(`${this.baseUrl}/edit/:${billId}`, body)
+      this.httpClient.put<any>(`${this.baseUrl}/edit/${groupId}/${billId}`, body, options)
     )
   }
 
   delete(billId: number) {
-
+    const options = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('cashFlowToken')!
+      })
+    }
     return firstValueFrom(
-      this.httpClient.delete<any[]>(`${this.baseUrl}/:${billId}`)
+      this.httpClient.delete<any>(`${this.baseUrl}/:${billId}`, options)
     )
   }
 
