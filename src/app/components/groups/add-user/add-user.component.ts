@@ -31,12 +31,12 @@ export class AddUserComponent {
 
 
   async onInput() {
-    this.activatedRoute.params.subscribe(async data => {
-      this.users = await this.groupsService.findUser(this.formulario.value.username, parseInt(data['groupId']))
-    });
+    if (this.formulario.value.username !== '') {
 
-
-
+      this.activatedRoute.params.subscribe(async data => {
+        this.users = await this.groupsService.findUser(this.formulario.value.username, parseInt(data['groupId']))
+      });
+    }
 
   }
 
