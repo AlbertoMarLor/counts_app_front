@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BillsService } from 'src/app/services/bills.service';
+import { GroupsService } from 'src/app/services/groups.service';
 
 @Component({
   selector: 'form-bill',
@@ -11,11 +12,14 @@ import { BillsService } from 'src/app/services/bills.service';
 export class FormBillComponent {
 
   formulario: FormGroup
+  group: any
 
 
   constructor(private billsService: BillsService,
-    private router: Router) {
-
+    private router: Router,
+    private groupsService: GroupsService,
+    private activatedRoute: ActivatedRoute) {
+    this.group = {}
     this.formulario = new FormGroup({
 
 
@@ -32,13 +36,14 @@ export class FormBillComponent {
   }
 
   async onSubmit() {
+    this.activatedRoute.params.subscribe(async data => {
+      this.group = await this.groupsService.getById(parseInt(data['groupId']))
+      const res = await this.billsService.create(this.formulario.value, this.group.id);
+      console.log(res);
 
-    const res = await this.billsService.create(this.formulario.value);
-    console.log(res);
 
-
+    })
   }
-
   checkError(control: string, validator: string) {
     return this.formulario.get(control)?.hasError(validator) && this.formulario.get(control)?.touched;
   }

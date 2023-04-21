@@ -20,9 +20,9 @@ const routes: Routes = [
   { path: 'groups/bills/:groupId', component: BillsComponent },
   { path: 'groups/newGroup', component: FormGroupComponent },
   { path: ':groupId/search', component: AddUserComponent },
-  { path: 'bills/newBill', component: FormBillComponent },
+  { path: 'groups/bills/:groupId/newBill', component: FormBillComponent },
   { path: 'groups/edit/:groupId', component: UpdateGroupComponent },
-  { path: 'groups/edit/:billId', component: UpdateBillComponent },
+  { path: 'groups/bills/edit/:groupId/:billId', component: UpdateBillComponent },
   { path: '**', redirectTo: '/home' },
 ];
 
