@@ -35,8 +35,6 @@ export class GroupsComponent {
       const res = await this.groupsService.delete(groupId);
       console.log(res);
 
-      this.groups = await this.groupsService.getAll();
-
 
     } catch (error: any) {
       console.log({ fatal: error.message })

@@ -68,7 +68,7 @@ export class BillsService {
       })
     }
     return firstValueFrom(
-      this.httpClient.delete<any>(`${this.baseUrl}/:${billId}`, options)
+      this.httpClient.delete<any>(`${this.baseUrl}/${billId}`, options)
     )
   }
 

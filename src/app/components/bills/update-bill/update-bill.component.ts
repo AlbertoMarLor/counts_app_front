@@ -43,7 +43,6 @@ export class UpdateBillComponent {
   ngOnInit() {
     this.activatedRoute.params.subscribe(async data => {
       this.bill = await this.billsService.getById(parseInt(data['billId']))
-      console.log(this.bill);
 
       let date = this.bill.date.split('T')[0]
 
@@ -56,9 +55,12 @@ export class UpdateBillComponent {
   async onSubmit() {
     this.activatedRoute.params.subscribe(async data => {
       this.group = await this.groupsService.getById(parseInt(data['groupId']))
-      this.bill = await this.billsService.update(this.formulario.value, parseInt(data['billId']), this.group.id)
-      console.log(this.bill);
+      console.log(this.group.id);
 
+      this.bill = await this.billsService.update(this.formulario.value, parseInt(data['billId']), this.group.id)
+      //console.log(this.bill);
+
+      this.router.navigate([`/groups/bills/${this.group.id}`]);
 
 
     })
