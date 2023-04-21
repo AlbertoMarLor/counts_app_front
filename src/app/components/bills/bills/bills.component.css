@@ -1,10 +1,10 @@
-.newgroup {
+.newbill {
     display: flex;
     gap: 10px;
     justify-content: right;
 }
 
-.newgroup>p {
+.newbill>p {
     margin-top: 8px;
 }
 
@@ -14,4 +14,43 @@
     border-radius: 10px;
     background-color: var(--softgreen-color);
     border: 1px solid var(--darkgreen-color);
+}
+
+
+.text {
+    width: calc(80% - 40px);
+}
+
+.bill {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    border: 1px solid var(--darkgreen-color);
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px var(--darkgreen-color);
+    padding: 20px;
+    max-width: 100%;
+    color: var(--darkgreen-color);
+    font-family: var(--mainfont-font-family);
+    cursor: pointer;
+    background-color: var(--softyellow-color);
+}
+
+h3 {
+    font-family: var(--CashFlow-font-family);
+}
+
+
+@media (max-width: 600px) {
+    .newbill {
+        justify-content: left;
+        margin-bottom: 10px;
+    }
+
+
+    .bills {
+        margin-top: 0px;
+    }
+
+
 }

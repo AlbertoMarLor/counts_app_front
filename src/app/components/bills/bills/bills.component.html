@@ -1,17 +1,16 @@
 <navbar></navbar>
 <div class="container">
-    <div class="newgroup">
+    <div class="newbill">
         <button (click)="goCreateBill()" class="add"><i class="fa-solid fa-plus"></i></button>
         <p>Create New Bill</p>
     </div>
 
-    <div class="bills" *ngFor="let bill of bills">
+    <div class="bill" *ngFor="let bill of bills">
 
         <div class="text">
             <h3>{{bill.name}}</h3>
-            <p>{{bill.id}}</p>
-            <p><i class="fa-regular fa-calendar"></i>{{bill.date | date:'dd/MM/yyyy' }} </p>
-            <p>{{bill.quantity}}</p>
+            <p>{{bill.quantity}} <i class="fa-solid fa-euro-sign"></i></p>
+            <p><i class="fa-regular fa-calendar"></i> {{bill.date | date:'dd/MM/yyyy' }} </p>
 
         </div>
         <div class="icons">

@@ -11,17 +11,19 @@ import { GroupsService } from 'src/app/services/groups.service';
 })
 export class UpdateBillComponent {
 
-  formulario: FormGroup
-  bill: any
-  group: any
+  formulario: FormGroup;
+  bill: any;
+  group: any;
+  users: any[];
 
 
   constructor(private billsService: BillsService,
     private groupsService: GroupsService,
     private activatedRoute: ActivatedRoute,
     private router: Router) {
-    this.bill = {}
-    this.group = {}
+    this.bill = {};
+    this.group = {};
+    this.users = [];
     this.formulario = new FormGroup({
 
       name: new FormControl(null, [
@@ -49,6 +51,8 @@ export class UpdateBillComponent {
       this.formulario.setValue({ name: this.bill.name, quantity: this.bill.quantity, date: date })
 
     })
+
+
 
   }
 

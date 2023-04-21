@@ -25,11 +25,23 @@
             </p>
         </div>
         <button type="submit" value="submit" class="btn btn-success mt-2" [disabled]="!formulario.valid">Submit</button>
+
+        <div>
+            <p>Select deptors:</p>
+            <label>NOMBRE</label>
+            <div>
+                <input type="checkbox" formControlName="deptor">
+            </div>
+        </div>
+
+
     </form>
     <div>
         <input type="input" class="form-control" placeholder="Enter new member" (input)="findUser()">
 
     </div>
+
+
 
 
 
