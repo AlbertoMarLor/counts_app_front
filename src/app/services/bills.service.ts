@@ -34,7 +34,7 @@ export class BillsService {
       })
     }
     return firstValueFrom(
-      this.httpClient.get<any>(`${this.baseUrl}/${billId}`, options)
+      this.httpClient.get<any>(`${this.baseUrl}/id/${billId}`, options)
     )
   }
 
