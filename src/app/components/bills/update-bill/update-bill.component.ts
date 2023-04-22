@@ -46,6 +46,7 @@ export class UpdateBillComponent {
     this.activatedRoute.params.subscribe(async data => {
       this.bill = await this.billsService.getById(parseInt(data['billId']))
 
+
       let date = this.bill.date.split('T')[0]
 
       this.formulario.setValue({ name: this.bill.name, quantity: this.bill.quantity, date: date })
