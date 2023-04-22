@@ -31,7 +31,8 @@ export class UpdateBillComponent {
         Validators.maxLength(30)
       ]),
       date: new FormControl(),
-      quantity: new FormControl()
+      quantity: new FormControl(),
+      deptor: new FormControl()
 
 
     })
@@ -44,16 +45,23 @@ export class UpdateBillComponent {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(async data => {
-      this.bill = await this.billsService.getById(parseInt(data['billId']))
+      this.group = await this.groupsService.getById(parseInt(data['groupId']));
+      this.bill = await this.billsService.getById(parseInt(data['billId']));
+
+      /* TODO PREGUNTAR A JUANAN EL LUNES!!!!!!! 
+        
+              let date = this.bill.date.split('T')[0]
+        
+              this.formulario.setValue({ name: this.bill.name, date: date, quantity: this.bill.quantity }) */
+
+      this.users = await this.groupsService.getUsersFromGroup(this.group.id);
+
+      /*  for (let user of this.users) {
+         this.formulario.setValue({ deptor: user.username })
+       } */
 
 
-      let date = this.bill.date.split('T')[0]
-
-      this.formulario.setValue({ name: this.bill.name, quantity: this.bill.quantity, date: date })
-
-    })
-
-
+    });
 
   }
 

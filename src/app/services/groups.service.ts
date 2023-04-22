@@ -38,6 +38,17 @@ export class GroupsService {
     );
   }
 
+  getUsersFromGroup(groupId: number) {
+    const options = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('cashFlowToken')!
+      })
+    };
+    return firstValueFrom(
+      this.httpClient.get<any>(`${this.baseUrl}/id/${groupId}/users`, options)
+    );
+  }
+
   create(body: any) {
     const options = {
       headers: new HttpHeaders({

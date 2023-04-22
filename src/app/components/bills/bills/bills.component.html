@@ -19,6 +19,16 @@
             <button class="btn" (click)="deleteGroup(bill.id)"><i class="fa-regular fa-trash-can"></i></button>
         </div>
 
+
     </div>
+
+    <div>
+        <h3>Members:</h3>
+        <ul *ngFor="let user of users">
+            <li>{{user.username}}</li>
+        </ul>
+    </div>
+
+    <p>Total Amount: {{totalAmount}} <i class="fa-solid fa-euro-sign"></i></p>
 
 </div>
