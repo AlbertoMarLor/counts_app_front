@@ -41,6 +41,8 @@ export class FormBillComponent {
       const res = await this.billsService.create(this.formulario.value, this.group.id);
       console.log(res);
 
+      this.router.navigate([`/groups/bills/${this.group.id}`]);
+
 
     })
   }
