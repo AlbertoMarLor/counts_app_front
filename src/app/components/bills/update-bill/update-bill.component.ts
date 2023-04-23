@@ -71,13 +71,21 @@ export class UpdateBillComponent {
       console.log(this.group.id);
 
       this.bill = await this.billsService.update(this.formulario.value, parseInt(data['billId']), this.group.id)
-      //console.log(this.bill);
+
 
       this.router.navigate([`/groups/bills/${this.group.id}`]);
 
 
     })
 
+  }
+
+  goBackBills() {
+    this.activatedRoute.params.subscribe(async data => {
+      this.group = await this.groupsService.getById(parseInt(data['groupId']))
+      console.log(this.group.id);
+      this.router.navigate([`/groups/bills/${this.group.id}`])
+    });
   }
 
 

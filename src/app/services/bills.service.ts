@@ -72,6 +72,17 @@ export class BillsService {
     )
   }
 
+  findBill(body: any, groupId: number) {
+    const options = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('cashFlowToken')!
+      })
+    }
+    return firstValueFrom(
+      this.httpClient.get<any>(`${this.baseUrl}/${groupId}/search/${body}`, options)
+    );
+  }
+
   delete(billId: number, groupId: number) {
     const options = {
       headers: new HttpHeaders({

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BillsService } from 'src/app/services/bills.service';
 import { GroupsService } from 'src/app/services/groups.service';
@@ -13,6 +14,7 @@ export class BillsComponent {
   group: any;
   users: any[];
   totalAmount: any;
+  formulario: FormGroup;
 
   constructor(private billsService: BillsService,
     private groupsService: GroupsService,
@@ -23,6 +25,7 @@ export class BillsComponent {
     this.group = {};
     this.users = [];
     this.totalAmount = 0;
+    this.formulario = new FormGroup({});
 
   }
 
@@ -30,6 +33,7 @@ export class BillsComponent {
     this.activatedRoute.params.subscribe(async data => {
       this.bills = await this.billsService.getAll(parseInt(data['groupId']))
       this.users = await this.groupsService.getUsersFromGroup(parseInt(data['groupId']));
+      this.group = await this.groupsService.getById(parseInt(data['groupId']));
 
       this.totalAmount = await this.billsService.getTotalAmount(parseInt(data['groupId']));
 
@@ -58,6 +62,8 @@ export class BillsComponent {
 
   async deleteGroup(billId: number) {
     try {
+      //TODO preguntar a Juanan porqué no borra inmediatamente en la interfaz (hemos hecho cambios en la BBDD, cascada etc)
+
       this.activatedRoute.params.subscribe(async data => {
         this.group = await this.groupsService.getById(parseInt(data['groupId']))
         const res = await this.billsService.delete(billId, this.group.id);
@@ -70,5 +76,20 @@ export class BillsComponent {
     }
   }
 
+  goBackGroups() {
+    this.router.navigate(['/groups']);
+  }
+
+  async onInput() {
+    if (this.formulario.value.searchBill !== '') {
+      this.activatedRoute.params.subscribe(async data => {
+        this.group = await this.groupsService.getById(parseInt(data['groupId']))
+        this.bills = await this.billsService.findBill(this.formulario.value.searchBill, this.group.id)
+      })
+    }
+  }
 
 }
+
+
+

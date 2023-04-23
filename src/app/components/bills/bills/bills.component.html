@@ -1,9 +1,26 @@
 <navbar></navbar>
 <div class="container">
-    <div class="newbill">
-        <button (click)="goCreateBill()" class="add"><i class="fa-solid fa-plus"></i></button>
-        <p>Create New Bill</p>
+    <div class="title">
+        <h1>Bills of <span> {{ group.name }}</span></h1>
     </div>
+    <hr noshade="noshade">
+    <div class="newbill">
+        <div class="goback">
+            <button (click)="goBackGroups()" class="add"><i class="fa-solid fa-angles-left"></i></button>
+            <p>Go back</p>
+        </div>
+        <div class="createbill">
+            <button (click)="goCreateBill()" class="add"><i class="fa-solid fa-plus"></i></button>
+            <p>Create New Bill</p>
+        </div>
+    </div>
+
+    <form class="mt-3" [formGroup]="formulario" (input)="onInput()">
+        <div class="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Insert the name of the bill" formControlName="searchBill">
+        </div>
+    </form>
 
     <div class="bill" *ngFor="let bill of bills">
 
