@@ -62,12 +62,10 @@ export class BillsComponent {
 
   async deleteGroup(billId: number) {
     try {
-<<<<<<< HEAD
       this.activatedRoute.params.subscribe(async data => {
         await this.billsService.delete(parseInt(data['groupId']), billId);
 
       })
-=======
       //TODO preguntar a Juanan porqué no borra inmediatamente en la interfaz (hemos hecho cambios en la BBDD, cascada etc)
 
       this.activatedRoute.params.subscribe(async data => {
@@ -76,7 +74,6 @@ export class BillsComponent {
         console.log(res);
       })
 
->>>>>>> feature/moreOperations
 
     } catch (error: any) {
       console.log({ fatal: error.message })
