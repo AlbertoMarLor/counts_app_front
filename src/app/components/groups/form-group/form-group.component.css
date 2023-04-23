@@ -9,3 +9,19 @@ input.ng-invalid.ng-touched {
 .error {
     color: tomato
 }
+
+.image {
+    width: 50%;
+    height: 50%;
+    margin: 50px auto;
+
+
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border: 1px solid white;
+    border-radius: 40%;
+
+}
