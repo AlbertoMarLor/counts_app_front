@@ -34,7 +34,7 @@ export class GroupsComponent {
     try {
       const res = await this.groupsService.delete(groupId);
       console.log(res);
-
+      this.router.navigate(['/groups']);
 
     } catch (error: any) {
       console.log({ fatal: error.message })

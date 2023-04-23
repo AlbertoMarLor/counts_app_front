@@ -72,14 +72,14 @@ export class BillsService {
     )
   }
 
-  delete(billId: number) {
+  delete(billId: number, groupId: number) {
     const options = {
       headers: new HttpHeaders({
         'Authorization': localStorage.getItem('cashFlowToken')!
       })
     }
     return firstValueFrom(
-      this.httpClient.delete<any>(`${this.baseUrl}/${billId}`, options)
+      this.httpClient.delete<any>(`${this.baseUrl}/${groupId}/${billId}`, options)
     )
   }
 
