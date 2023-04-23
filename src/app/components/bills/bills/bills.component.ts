@@ -58,10 +58,10 @@ export class BillsComponent {
 
   async deleteGroup(billId: number) {
     try {
+      this.activatedRoute.params.subscribe(async data => {
+        await this.billsService.delete(parseInt(data['groupId']), billId);
 
-      const res = await this.billsService.delete(billId);
-      console.log(res);
-
+      })
 
     } catch (error: any) {
       console.log({ fatal: error.message })
