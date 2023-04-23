@@ -1,7 +1,7 @@
 <div class="container">
     <div>
         <nav class="navbar">
-            <div class="cashFlow">
+            <div routerLink="/groups" class="cashFlow">
                 <p class="texto"> CashFlow </p>
                 <i class="fa-solid fa-hand-holding-dollar"></i>
 
@@ -23,11 +23,14 @@
                     <li class="register" routerLinkActive="active" *ngIf="!usersService.isLogged()">
                         <a routerLink="/users/register">Register</a>
                     </li>
+
+                    <li *ngIf="usersService.isLogged()">{{user}}</li>
+
                     <li class="groups" routerLinkActive="active" *ngIf="usersService.isLogged()">
                         <a routerLink="/groups">Groups</a>
                     </li>
                     <li (click)="onLogOut()" class="Logout" routerLinkActive="active" *ngIf="usersService.isLogged()">
-                        <a routerLink="/groups">Logout</a>
+                        <a routerLink="/home">Logout</a>
                     </li>
 
                     <hr noshade="noshade">

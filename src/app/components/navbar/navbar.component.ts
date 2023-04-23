@@ -9,15 +9,27 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class NavbarComponent {
 
+  user: string
+
   constructor(private router: Router,
-    public usersService: UsersService) { }
+    public usersService: UsersService) {
+
+    this.user = ''
+
+  }
 
   onLogOut() {
     //borro el token
     localStorage.removeItem('cashFlowToken');
-    console.log('holi')
+
     // navego al login
     this.router.navigate(['/home']);
+  }
+
+  async ngOnInit() {
+
+    this.user = await this.usersService.getUsers()
+
   }
 
 

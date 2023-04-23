@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { first, firstValueFrom } from 'rxjs';
 
 @Injectable({
@@ -15,7 +15,16 @@ export class UsersService {
     this.baseUrl = 'http://localhost:3000/api/users';
 
   }
-
+  getUsers() {
+    const options = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('cashFlowToken')!
+      })
+    }
+    return firstValueFrom(
+      this.httpClient.get<any>(`${this.baseUrl}`, options)
+    )
+  }
 
   create(body: any) {
     return firstValueFrom(
