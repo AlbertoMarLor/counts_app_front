@@ -3,9 +3,6 @@
     <div class="title">
         <h1>Bills of <span> {{ group.name }}</span></h1>
     </div>
-    <div class="wrapper row">
-        <div class="col-12 col-xl-8">
-            <div class="bill" *ngFor="let bill of bills">
     <hr noshade="noshade">
     <div class="newbill">
         <div class="goback">
@@ -24,6 +21,9 @@
             <input type="text" placeholder="Insert the name of the bill" formControlName="searchBill">
         </div>
     </form>
+    <div class="wrapper row">
+        <div class="col-12 col-xl-8">
+            <div class="bill" *ngFor="let bill of bills">
 
                 <div class="text">
                     <h3>{{bill.name}}</h3>
@@ -37,13 +37,12 @@
                     <button class="btn" (click)="deleteGroup(bill.id)"><i class="fa-regular fa-trash-can"></i></button>
                 </div>
 
-
             </div>
         </div>
         <div class=" col-12 col-xl-3 ms-5">
             <h3>Members:</h3>
-            <ul *ngFor="let user of users">
-                <li>{{user.username}}</li>
+            <ul class="row" *ngFor="let user of users">
+                <li class="col-6">{{user.username}}</li> <span class="col-6">{{user.role}}</span>
             </ul>
             <p class="mt-5"> <strong>Total Amount: </strong> {{totalAmount}} <i class="fa-solid fa-euro-sign"></i></p>
         </div>

@@ -28,9 +28,14 @@ h1 {
     color: var(--darkgreen-color);
 }
 
-span {
+h1>span {
     color: var(--softgreen-color);
     margin-left: 8px;
+}
+
+span {
+    font-family: var(--CashFlow-font-family);
+    color: var(--softgreen-color);
 }
 
 hr {
