@@ -18,18 +18,18 @@ export class NavbarComponent {
 
   }
 
-  onLogOut() {
-    //borro el token
-    localStorage.removeItem('cashFlowToken');
-
-    // navego al login
-    this.router.navigate(['/home']);
-  }
 
   async ngOnInit() {
 
     this.user = await this.usersService.getUsers()
 
+  }
+
+  onLogOut() {
+
+    //TODO No funciona el removeToken PORQUE?   
+    localStorage.removeItem('cashFlowToken');
+    this.router.navigate(['/home']);
   }
 
 

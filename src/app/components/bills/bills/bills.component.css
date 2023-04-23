@@ -38,6 +38,23 @@ span {
     color: var(--softgreen-color);
 }
 
+span.span {
+    margin-top: 10px;
+}
+
+.search {
+    margin-bottom: 10px;
+}
+
+.search>i {
+    margin-right: 10px;
+}
+
+.search>input {
+    border-radius: 5px;
+    border-color: var(--darkgreen-color);
+}
+
 hr {
     margin: 40px;
     color: var(--darkgreen-color);
@@ -93,7 +110,7 @@ ul {
     list-style: none;
 }
 
-li {
+ul>li {
     text-align: center;
     border-bottom: 1px solid var(--darkgreen-color);
     border-radius: 10px;
