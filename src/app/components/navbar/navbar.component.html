@@ -4,15 +4,12 @@
             <div routerLink="/groups" class="cashFlow">
                 <p class="texto"> CashFlow </p>
                 <i class="fa-solid fa-hand-holding-dollar"></i>
-
             </div>
 
 
-
-
             <div class="buttons">
-
                 <ul>
+                    <li class="hello" *ngIf="usersService.isLogged()"> Hello, {{user}}</li>
                     <hr noshade="noshade">
                     <li class="home" routerLinkActive="home" *ngIf="!usersService.isLogged()">
                         <a routerLink="/home">Home</a>
@@ -24,13 +21,11 @@
                         <a routerLink="/users/register">Register</a>
                     </li>
 
-                    <li *ngIf="usersService.isLogged()">{{user}}</li>
-
                     <li class="groups" routerLinkActive="active" *ngIf="usersService.isLogged()">
                         <a routerLink="/groups">Groups</a>
                     </li>
                     <li (click)="onLogOut()" class="Logout" routerLinkActive="active" *ngIf="usersService.isLogged()">
-                        <a routerLink="/home">Logout</a>
+                        <a>Logout</a>
                     </li>
 
                     <hr noshade="noshade">
