@@ -25,3 +25,9 @@ span {
     cursor: pointer;
     color: var(--darkgreen-color);
 }
+
+.username p {
+    cursor: pointer;
+    transition: 1s;
+
+}

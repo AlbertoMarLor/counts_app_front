@@ -4,31 +4,33 @@
         <button (click)="goCreateBill()" class="add"><i class="fa-solid fa-plus"></i></button>
         <p>Create New Bill</p>
     </div>
+    <div class="wrapper row">
+        <div class="col-12 col-xl-8">
+            <div class="bill" *ngFor="let bill of bills">
 
-    <div class="bill" *ngFor="let bill of bills">
+                <div class="text">
+                    <h3>{{bill.name}}</h3>
+                    <p>{{bill.quantity}} <i class="fa-solid fa-euro-sign"></i></p>
+                    <p><i class="fa-regular fa-calendar"></i> {{bill.date | date:'dd/MM/yyyy' }} </p>
 
-        <div class="text">
-            <h3>{{bill.name}}</h3>
-            <p>{{bill.quantity}} <i class="fa-solid fa-euro-sign"></i></p>
-            <p><i class="fa-regular fa-calendar"></i> {{bill.date | date:'dd/MM/yyyy' }} </p>
+                </div>
+                <div class="icons">
+                    <button class="btn" (click)="updateGroup(bill.id)">
+                        <i class="fa-regular fa-pen-to-square"></i></button>
+                    <button class="btn" (click)="deleteGroup(bill.id)"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
 
+
+            </div>
         </div>
-        <div class="icons">
-            <button class="btn" (click)="updateGroup(bill.id)">
-                <i class="fa-regular fa-pen-to-square"></i></button>
-            <button class="btn" (click)="deleteGroup(bill.id)"><i class="fa-regular fa-trash-can"></i></button>
+        <div class=" col-12 col-xl-3 ms-5">
+            <h3>Members:</h3>
+            <ul *ngFor="let user of users">
+                <li>{{user.username}}</li>
+            </ul>
+            <p class="mt-5"> <strong>Total Amount: </strong> {{totalAmount}} <i class="fa-solid fa-euro-sign"></i></p>
         </div>
-
-
     </div>
 
-    <div>
-        <h3>Members:</h3>
-        <ul *ngFor="let user of users">
-            <li>{{user.username}}</li>
-        </ul>
-    </div>
-
-    <p>Total Amount: {{totalAmount}} <i class="fa-solid fa-euro-sign"></i></p>
 
 </div>
