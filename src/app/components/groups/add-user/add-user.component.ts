@@ -13,7 +13,6 @@ export class AddUserComponent {
   formulario: FormGroup;
   group: any;
   users: any[];
-  show: any;
 
 
   constructor(private groupsService: GroupsService,
@@ -25,7 +24,6 @@ export class AddUserComponent {
     });
     this.group = {};
     this.users = [];
-    this.show = '';
 
   }
 

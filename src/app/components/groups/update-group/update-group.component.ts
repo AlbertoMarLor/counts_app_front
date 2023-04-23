@@ -16,7 +16,7 @@ export class UpdateGroupComponent {
   formulario: FormGroup;
   user: string;
 
-  constructor(private groupService: GroupsService,
+  constructor(private groupsService: GroupsService,
     private router: Router,
     private activatedRoute: ActivatedRoute) {
 
@@ -46,7 +46,7 @@ export class UpdateGroupComponent {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(async data => {
-      this.group = await this.groupService.getById(parseInt(data['groupId']))
+      this.group = await this.groupsService.getById(parseInt(data['groupId']))
 
       let date = this.group.date.split('T')[0]
 
@@ -57,7 +57,7 @@ export class UpdateGroupComponent {
   }
   async onSubmit() {
     this.activatedRoute.params.subscribe(async data => {
-      this.group = await this.groupService.update(this.formulario.value, parseInt(data['groupId']))
+      this.group = await this.groupsService.update(this.formulario.value, parseInt(data['groupId']))
       console.log(this.group);
       this.router.navigate(['/groups']);
 
@@ -66,8 +66,8 @@ export class UpdateGroupComponent {
   }
 
 
-  findUser() {
-
+  goBackGroups() {
+    this.router.navigate(['/groups'])
   }
 
 

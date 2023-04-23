@@ -1,0 +1,20 @@
+.goback {
+    display: flex;
+}
+
+.goback>p {
+    margin: 8px 5px;
+}
+
+i,
+p {
+    color: var(--darkgreen-color)
+}
+
+.add {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--softgreen-color);
+    border: 1px solid var(--darkgreen-color);
+}
