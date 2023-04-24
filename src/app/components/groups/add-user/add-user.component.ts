@@ -34,6 +34,7 @@ export class AddUserComponent {
       this.activatedRoute.params.subscribe(async data => {
         this.users = await this.groupsService.findUser(this.formulario.value.username, parseInt(data['groupId']))
       });
+
     }
 
   }

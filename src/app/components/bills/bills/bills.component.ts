@@ -14,7 +14,8 @@ export class BillsComponent {
   group: any;
   users: any[];
   totalAmount: any;
-  formulario: FormGroup;
+  operations: any[];
+
 
   constructor(private billsService: BillsService,
     private groupsService: GroupsService,
@@ -25,19 +26,25 @@ export class BillsComponent {
     this.group = {};
     this.users = [];
     this.totalAmount = 0;
-    this.formulario = new FormGroup({});
+    this.operations = [];
+
 
   }
 
   async ngOnInit() {
     this.activatedRoute.params.subscribe(async data => {
-      this.bills = await this.billsService.getAll(parseInt(data['groupId']))
-      this.users = await this.groupsService.getUsersFromGroup(parseInt(data['groupId']));
       this.group = await this.groupsService.getById(parseInt(data['groupId']));
+      this.bills = await this.billsService.getAll(this.group.id)
+      this.users = await this.groupsService.getUsersFromGroup(this.group.id);
 
-      this.totalAmount = await this.billsService.getTotalAmount(parseInt(data['groupId']));
+
+      this.totalAmount = await this.billsService.getTotalAmount(this.group.id);
 
       this.totalAmount = this.totalAmount[0].suma;
+
+      this.operations = await this.billsService.getOperations(this.group.id);
+
+      console.log(this.operations)
 
     });
 
@@ -71,7 +78,9 @@ export class BillsComponent {
       this.activatedRoute.params.subscribe(async data => {
         this.group = await this.groupsService.getById(parseInt(data['groupId']))
         const res = await this.billsService.delete(billId, this.group.id);
-        console.log(res);
+        if (res) {
+          this.bills = await this.billsService.getAll(parseInt(data['groupId']))
+        }
       })
 
 
@@ -84,11 +93,12 @@ export class BillsComponent {
     this.router.navigate(['/groups']);
   }
 
-  async onInput() {
-    if (this.formulario.value.searchBill !== '') {
+  async onInput($event: any) {
+    if ($event.target.value !== '') {
       this.activatedRoute.params.subscribe(async data => {
         this.group = await this.groupsService.getById(parseInt(data['groupId']))
-        this.bills = await this.billsService.findBill(this.formulario.value.searchBill, this.group.id)
+        this.bills = await this.billsService.findBill($event.target.value, this.group.id)
+        console.log(this.bills)
       })
     }
   }
