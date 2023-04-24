@@ -81,7 +81,7 @@ export class BillsService {
     }
 
     return firstValueFrom(
-      this.httpClient.get<any>(`${this.baseUrl}/${groupId}/search/${body}`, options)
+      this.httpClient.get<any>(`${this.baseUrl}/search/${groupId}/${body}`, options)
     );
   }
 

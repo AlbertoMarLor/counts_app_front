@@ -14,7 +14,7 @@ export class BillsComponent {
   group: any;
   users: any[];
   totalAmount: any;
-  formulario: FormGroup;
+
 
   constructor(private billsService: BillsService,
     private groupsService: GroupsService,
@@ -25,7 +25,7 @@ export class BillsComponent {
     this.group = {};
     this.users = [];
     this.totalAmount = 0;
-    this.formulario = new FormGroup({});
+
 
   }
 
@@ -71,7 +71,9 @@ export class BillsComponent {
       this.activatedRoute.params.subscribe(async data => {
         this.group = await this.groupsService.getById(parseInt(data['groupId']))
         const res = await this.billsService.delete(billId, this.group.id);
-        console.log(res);
+        if (res) {
+          this.bills = await this.billsService.getAll(parseInt(data['groupId']))
+        }
       })
 
 
@@ -84,11 +86,12 @@ export class BillsComponent {
     this.router.navigate(['/groups']);
   }
 
-  async onInput() {
-    if (this.formulario.value.searchBill !== '') {
+  async onInput($event: any) {
+    if ($event.target.value !== '') {
       this.activatedRoute.params.subscribe(async data => {
         this.group = await this.groupsService.getById(parseInt(data['groupId']))
-        this.bills = await this.billsService.findBill(this.formulario.value.searchBill, this.group.id)
+        this.bills = await this.billsService.findBill($event.target.value, this.group.id)
+        console.log(this.bills)
       })
     }
   }
