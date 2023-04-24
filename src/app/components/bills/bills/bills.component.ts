@@ -14,6 +14,7 @@ export class BillsComponent {
   group: any;
   users: any[];
   totalAmount: any;
+  operations: any[];
 
 
   constructor(private billsService: BillsService,
@@ -25,19 +26,25 @@ export class BillsComponent {
     this.group = {};
     this.users = [];
     this.totalAmount = 0;
+    this.operations = [];
 
 
   }
 
   async ngOnInit() {
     this.activatedRoute.params.subscribe(async data => {
-      this.bills = await this.billsService.getAll(parseInt(data['groupId']))
-      this.users = await this.groupsService.getUsersFromGroup(parseInt(data['groupId']));
       this.group = await this.groupsService.getById(parseInt(data['groupId']));
+      this.bills = await this.billsService.getAll(this.group.id)
+      this.users = await this.groupsService.getUsersFromGroup(this.group.id);
 
-      this.totalAmount = await this.billsService.getTotalAmount(parseInt(data['groupId']));
+
+      this.totalAmount = await this.billsService.getTotalAmount(this.group.id);
 
       this.totalAmount = this.totalAmount[0].suma;
+
+      this.operations = await this.billsService.getOperations(this.group.id);
+
+      console.log(this.operations)
 
     });
 
