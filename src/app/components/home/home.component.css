@@ -104,14 +104,12 @@ ul>li>a {
 
 .background {
     position: absolute;
-    margin: 0 auto;
-    bottom: -10px;
-
+    max-width: 100%;
 }
 
 img {
     display: block;
-    width: 82.5%;
+    width: 90%;
     height: auto;
     opacity: 0.5;
 }
@@ -135,14 +133,13 @@ img {
 
     .followus {
         margin: 0 auto;
+        cursor: pointer;
     }
 
     .background {
         position: absolute;
         margin: 0 auto;
-        bottom: 260px;
         left: 30px;
-
     }
 
     img {
