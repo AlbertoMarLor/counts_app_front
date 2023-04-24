@@ -26,8 +26,6 @@ export class NavbarComponent {
   }
 
   onLogOut() {
-
-    //TODO No funciona el removeToken PORQUE?   
     localStorage.removeItem('cashFlowToken');
     this.router.navigate(['/home']);
   }
