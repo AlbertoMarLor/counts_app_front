@@ -18,18 +18,3 @@ p {
     background-color: var(--softgreen-color);
     border: 1px solid var(--darkgreen-color);
 }
-
-.image {
-    width: 50%;
-    height: 50%;
-    margin: 50px auto;
-
-
-}
-
-img {
-    width: 50%;
-    height: auto;
-
-
-}
