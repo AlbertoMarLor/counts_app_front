@@ -49,6 +49,13 @@ export class AddUserComponent {
     });
   }
 
+  goBack(groupId: number) {
+    this.activatedRoute.params.subscribe(async data => {
+      this.group = await this.groupsService.getById(data['groupId'])
+      this.router.navigate([`/groups/bills/${this.group.id}`])
+    });
+  }
+
 
 
 
