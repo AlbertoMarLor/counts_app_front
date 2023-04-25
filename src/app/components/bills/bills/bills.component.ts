@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BillsService } from 'src/app/services/bills.service';
 import { GroupsService } from 'src/app/services/groups.service';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'bills',
@@ -16,9 +17,13 @@ export class BillsComponent {
   totalAmount: any;
   operations: any[];
   admin: any;
+  loggedId: number;
+  user: any;
+  role: string;
 
 
   constructor(private billsService: BillsService,
+    private usersService: UsersService,
     private groupsService: GroupsService,
     private activatedRoute: ActivatedRoute,
     private router: Router) {
@@ -29,6 +34,9 @@ export class BillsComponent {
     this.totalAmount = 0;
     this.operations = [];
     this.admin = 0;
+    this.loggedId = 0;
+    this.user = {};
+    this.role = '';
 
 
   }
@@ -76,7 +84,7 @@ export class BillsComponent {
         await this.billsService.delete(parseInt(data['groupId']), billId);
 
       })
-      //TODO preguntar a Juanan porqué no borra inmediatamente en la interfaz (hemos hecho cambios en la BBDD, cascada etc)
+
 
       this.activatedRoute.params.subscribe(async data => {
         this.group = await this.groupsService.getById(parseInt(data['groupId']))
@@ -107,7 +115,7 @@ export class BillsComponent {
       this.activatedRoute.params.subscribe(async data => {
         this.group = await this.groupsService.getById(parseInt(data['groupId']))
         this.bills = await this.billsService.findBill($event.target.value, this.group.id)
-        console.log(this.bills)
+
       })
     }
   }
