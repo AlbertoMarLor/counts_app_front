@@ -15,6 +15,7 @@ export class UsersService {
     this.baseUrl = 'http://localhost:3000/api/users';
 
   }
+
   getUsers() {
     const options = {
       headers: new HttpHeaders({
@@ -25,6 +26,36 @@ export class UsersService {
       this.httpClient.get<any>(`${this.baseUrl}`, options)
     )
   }
+
+  getUserById(userId: number) {
+    const options = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('cashFlowToken')!
+      })
+    }
+    return firstValueFrom(
+      this.httpClient.get<any>(`${this.baseUrl}/user/${userId}`, options)
+    )
+  }
+
+  getRole(groupId: number) {
+
+    return firstValueFrom(
+      this.httpClient.get<any>(`${this.baseUrl}/get/role/${groupId}`)
+    )
+  }
+
+  getLoggedId() {
+    const options = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('cashFlowToken')!
+      })
+    }
+    return firstValueFrom(
+      this.httpClient.get<any>(`${this.baseUrl}/loggedId`, options)
+    )
+  }
+
 
   create(body: any) {
     return firstValueFrom(
