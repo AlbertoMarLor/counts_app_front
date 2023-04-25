@@ -22,7 +22,7 @@
     </div>
 
     <div class="wrapper row">
-        <div class="col-12 col-xl-9 ms-5">
+        <div class="col-xl-9 ms-5">
             <div class="bill" *ngFor="let bill of bills">
 
                 <div class="text">
@@ -39,19 +39,21 @@
 
             </div>
         </div>
-        <div class=" col-12 col-xl-2 ms-5">
-            <h3>Members:</h3>
+        <div class="col-xl-2 ms-5">
+            <h3 class="h3">Members:</h3>
             <ul class="row" *ngFor="let user of users">
                 <li class="col-6">{{user.username}}</li> <span class="span col-6">{{user.role}}</span>
             </ul>
-            <p class="mt-5"> <strong>Total Amount: </strong> {{totalAmount}} <i class="fa-solid fa-euro-sign"></i></p>
+
         </div>
 
-        <div>
-            <!-- <h3>Operations:</h3>
-            <ul *ngFor="let operation of operations">
-                <p>{{operation.username}}: <span>{{operation.quantity}}</span></p>
-            </ul> -->
+        <div class="operations mt-3">
+            <h3 class="h3">Operations:</h3>
+            <p class="amount"> <strong>Total Amount: </strong> {{totalAmount}} <i class="fa-solid fa-euro-sign"></i></p>
+            <ul *ngFor="let user of users">
+
+                <p>{{user.username}}: <span>{{operations}}</span></p>
+            </ul>
         </div>
     </div>
 

@@ -15,6 +15,7 @@ export class BillsComponent {
   users: any[];
   totalAmount: any;
   operations: any[];
+  admin: any;
 
 
   constructor(private billsService: BillsService,
@@ -27,6 +28,7 @@ export class BillsComponent {
     this.users = [];
     this.totalAmount = 0;
     this.operations = [];
+    this.admin = 0;
 
 
   }
@@ -42,9 +44,10 @@ export class BillsComponent {
 
       this.totalAmount = this.totalAmount[0].suma;
 
-      this.operations = await this.billsService.getOperations(this.group.id);
+      this.operations = await this.billsService.getMemberDebt(this.group.id);
 
-      console.log(this.operations)
+      this.operations = this.operations[0].totalMemberDebt
+
 
     });
 
@@ -80,6 +83,12 @@ export class BillsComponent {
         const res = await this.billsService.delete(billId, this.group.id);
         if (res) {
           this.bills = await this.billsService.getAll(parseInt(data['groupId']))
+
+          this.totalAmount = await this.billsService.getTotalAmount(this.group.id);
+          this.totalAmount = this.totalAmount[0].suma;
+
+          this.operations = await this.billsService.getMemberDebt(this.group.id);
+          this.operations = this.operations[0].totalMemberDebt
         }
       })
 

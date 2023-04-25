@@ -121,16 +121,30 @@ ul>li {
 }
 
 
+
 @media (max-width: 600px) {
     .newbill {
         justify-content: left;
         margin-bottom: 10px;
     }
 
-
-    .bills {
-        margin-top: 0px;
+    .bill {
+        max-width: 80%;
     }
 
+    .icons {
+        margin-right: 25px;
+    }
 
+    .h3 {
+        text-align: center;
+    }
+
+    ul {
+        text-align: center;
+    }
+
+    .amount {
+        text-align: center;
+    }
 }

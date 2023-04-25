@@ -49,14 +49,14 @@ export class BillsService {
     )
   }
 
-  getOperations(groupId: number) {
+  getMemberDebt(groupId: number) {
     const options = {
       headers: new HttpHeaders({
         'Authorization': localStorage.getItem('cashFlowToken')!
       })
     }
     return firstValueFrom(
-      this.httpClient.get<any>(`${this.baseUrl}/amount/debts/${groupId}/users`, options)
+      this.httpClient.get<any>(`${this.baseUrl}/getTotalDebt/${groupId}`, options)
     )
   }
 
